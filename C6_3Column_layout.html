@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Header Body Footer with Animation</title>
+  <style>
+body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: grid;
+        grid-template-areas: 
+     "header header header"
+     "Aside1 main Aside2"
+     "footer footer footer";
+      grid-template-columns: 1fr 2fr 1fr;
+      grid-template-rows: auto 1fr auto;
+      height: 100vh;
+      border: 3px solid grey;
+    }
+
+    header {
+      grid-area: header;
+      background: linear-gradient(90deg, #4facfe, #00f2fe);
+      text-align: center;
+      padding: 20px;
+      color: white;
+      animation: slideDown 1s ;
+    }
+    main.buttom{
+        color: #00f2fe;
+    }
+     #a {
+    grid-area: Aside1;
+     background-color: gray;
+     animation: slideleft 1s;
+    }
+
+    main {
+        grid-area: main;
+      float: left;
+    }
+    main.button{
+        background-color: #00f2fe;
+    }
+
+    #b {
+     grid-area: Aside2;
+     background-color: gray;
+     animation: slideright 1s;
+    }
+
+    footer {
+      grid-area: footer;
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      animation: slideUp 1s ;
+    }
+
+
+    @keyframes slideDown {
+      from { color: #000;transform: translate(-100%); }
+      to { transform: translatey(0); color: red;  }
+    }
+
+    @keyframes slideUp {
+      from { transform: translatex(-100%); color: red;  }
+      to { transform: translateY(0); color: red }
+    }
+     @keyframes slideleft {
+      from { transform: translatey(-100%); color: red;  }
+      to { transform: translateY(0); color: red }
+    }
+    @keyframes slideright {
+      from { transform: translatey(-100%); color: red;  }
+      to { transform: translateY(0); color: red }
+    }
+     img {
+      max-width: 100%;
+      height: auto;
+    }
+
+  </style>
+</head>
+<body>
+  <header><h1>Header</h1></header>
+
+  <aside id="a"><h2>Aside1 </h2></aside> 
+
+  <main>
+    <h2>Main Content</h2>
+    <p>This is the main content section with an image hover effect:</p>
+    <button onclick="addimage()">Aside1</button>
+    <button onclick="addimage1()">Aside2</button>
+  </main>
+ 
+
+  <aside id="b"><h2>Aside2</h2></aside>
+
+  <footer><h2>Footer</h2></footer>
+
+  <script>
+    function addimage(){
+      document.getElementById("a").innerHTML= '<img src="img.webp">';
+    }
+
+     function addimage1(){
+      document.getElementById("b").innerHTML= '<img src="img1.jpeg">';
+    }
+  </script>
+</body>
+</html>
